@@ -145,14 +145,6 @@
         "documentation": {}
     },
     {
-        "label": "SparkSource",
-        "importPath": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "description": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "isExtraImport": true,
-        "detail": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "documentation": {}
-    },
-    {
         "label": "subprocess",
         "kind": 6,
         "isExtraImport": true,
@@ -192,7 +184,7 @@
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "project = Project(name=\"test_feast_ibm\", description=\"A project for driver statistics\")\n# Define an entity for the driver. You can think of an entity as a primary key used to\n# fetch features.\ndriver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\n# driver_stats_source = FileSource(\n#     name=\"driver_hourly_stats_source\",\n#     path=\"data\\driver_stats.parquet\",",
+        "peekOfCode": "project = Project(name=\"test_feast_ibm\", description=\"A project for driver statistics\")\n# Define an entity for the driver. You can think of an entity as a primary key used to\n# fetch features.\ndriver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\ndriver_stats_source = FileSource(\n    name=\"driver_hourly_stats_source\",\n    path=\"driver_stats.parquet\",",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -201,7 +193,7 @@
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\n# driver_stats_source = FileSource(\n#     name=\"driver_hourly_stats_source\",\n#     path=\"data\\driver_stats.parquet\",\n#     timestamp_field=\"event_timestamp\",\n#     created_timestamp_column=\"created\",\n# )",
+        "peekOfCode": "driver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\ndriver_stats_source = FileSource(\n    name=\"driver_hourly_stats_source\",\n    path=\"driver_stats.parquet\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -210,7 +202,7 @@
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_stats_source = SparkSource(\n    name=\"driver_hourly_stats_source\",\n    table=\"thidiemcatalog.testthidiem.driver_stats\",  # Replace with your actual catalog, database, and table names\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\"\n)\n# Our parquet files contain sample data that includes a driver_id column, timestamps and\n# three feature column. Here we define a Feature View that will allow us to serve this\n# data to our model online.\ndriver_stats_fv = FeatureView(",
+        "peekOfCode": "driver_stats_source = FileSource(\n    name=\"driver_hourly_stats_source\",\n    path=\"driver_stats.parquet\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\n# driver_stats_source = SparkSource(\n#     name=\"driver_hourly_stats_source\",\n#     table=\"thidiemcatalog.testthidiem.driver_stats\",  # Replace with your actual catalog, database, and table names\n#     timestamp_field=\"event_timestamp\",",
         "detail": "example_repo",
         "documentation": {}
     },

@@ -18,7 +18,7 @@ from feast.feature_logging import LoggingConfig
 from feast.infra.offline_stores.file_source import FileLoggingDestination
 from feast.on_demand_feature_view import on_demand_feature_view
 from feast.types import Float32, Float64, Int64
-from feast.infra.offline_stores.contrib.spark_offline_store.spark_source import SparkSource
+# from feast.infra.offline_stores.contrib.spark_offline_store.spark_source import SparkSource
 
 
 # Define a project for the feature repo
@@ -32,19 +32,19 @@ driver = Entity(name="driver", join_keys=["driver_id"])
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation
 # for more info.
 
-# driver_stats_source = FileSource(
-#     name="driver_hourly_stats_source",
-#     path="data\driver_stats.parquet",
-#     timestamp_field="event_timestamp",
-#     created_timestamp_column="created",
-# )
-
-driver_stats_source = SparkSource(
+driver_stats_source = FileSource(
     name="driver_hourly_stats_source",
-    table="thidiemcatalog.testthidiem.driver_stats",  # Replace with your actual catalog, database, and table names
+    path="driver_stats.parquet",
     timestamp_field="event_timestamp",
-    created_timestamp_column="created"
+    created_timestamp_column="created",
 )
+
+# driver_stats_source = SparkSource(
+#     name="driver_hourly_stats_source",
+#     table="thidiemcatalog.testthidiem.driver_stats",  # Replace with your actual catalog, database, and table names
+#     timestamp_field="event_timestamp",
+#     created_timestamp_column="created"
+# )
 
 # Our parquet files contain sample data that includes a driver_id column, timestamps and
 # three feature column. Here we define a Feature View that will allow us to serve this
