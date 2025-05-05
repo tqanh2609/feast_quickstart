@@ -5,7 +5,7 @@ online_store:
     type: singlestore
     host: 192.168.0.121
     port: 32216
-    database: feast
+    database: feastfile
     user: admin
     password: Vnpt@2025
 entity_key_serialization_version: 2
